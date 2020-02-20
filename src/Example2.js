@@ -8,11 +8,25 @@ class Example2 extends React.Component {
   };
 
   render() {
-    // debugger;
+    debugger;
+
+    let people = "";
+
+    if (this.props.information) {
+      people = this.props.information.map(individual => {
+        return (
+          <div>
+            <div>{individual.name}</div>
+            <div>{individual.superPower}</div>
+          </div>
+        );
+      });
+    }
 
     return (
       <div>
-        {this.props.information.name && `Name: ${this.props.information.name}`}
+        {/* {this.props.information.ma && `Name: ${this.props.information.name}`} */}
+        {people}
       </div>
     );
   }

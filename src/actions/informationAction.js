@@ -11,3 +11,11 @@ export const updateFood = information => {
     information
   };
 };
+
+export const addSuperHero = (name, superPower) => {
+  return {
+    type: "ADD_SUPERHERO",
+    name: name,
+    superPower: superPower
+  };
+};
