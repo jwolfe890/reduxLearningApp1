@@ -1,30 +1,20 @@
-// import React from "react";
-// import ExampleClassComponent from "./ExampleClassComponent";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <ExampleClassComponent />
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ExampleClassComponent from "./ExampleClassComponent";
-import TestComponent from "./TestComponent.js";
+import Article from "./Article";
+
+// import Form from "./Form";
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <ExampleClassComponent />
+      {/* <Router>
         <Switch>
           <Route exact path="/" component={ExampleClassComponent} />
-          <Route path="/path/testComponent" component={TestComponent} />
+          <Route exact path="/article/:id" component={Article} />
         </Switch>
-      </Router>
+      </Router> */}
     </div>
   );
 }

@@ -1,30 +1,36 @@
 import React from "react";
-import { connect } from "react-redux";
-import ExampleClass2 from "./Example2";
-import { addSuperHero } from "./actions/informationAction";
+import Articles from "./Articles.js";
 
 class ExampleClassComponent extends React.Component {
   state = {
-    displayMessage: false,
-    message: ""
+    articleData: ""
+  };
+
+  apiMethod = async query => {
+    const api_call = await fetch(
+      `https://api.giphy.com/v1/gifs/search?api_key=5d30D599o0h7uKemfq7wAdwLi9a78Gt3&q=astronomy`
+    );
+
+    let data = await api_call.json();
+
+    if (data) {
+      this.setState({
+        articleData: data
+      });
+    }
   };
 
   render() {
+    debugger;
+
     return (
       <div>
-        <div
-          onClick={() => this.props.addSuperHero("Bob Jones", "Running fast")}
-        >
-          CLICK ME
-        </div>
-        <ExampleClass2 />
+        <div onClick={this.apiMethod}>SHOW IMAGES</div>
+        {/* <Form apiMethod={this.apiMethod} /> */}
+        <Articles articles={this.state.articleData} />
       </div>
     );
   }
 }
 
-const mapDispatchToProps = {
-  addSuperHero
-};
-
-export default connect(null, mapDispatchToProps)(ExampleClassComponent);
+export default ExampleClassComponent;
